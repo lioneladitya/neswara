@@ -4,11 +4,11 @@ import Logo from "../assets/logoneswara.png"; // Pastikan path logo sesuai
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-white shadow-md px-6 py-3">
+    <nav className="w-full bg-white shadow-md px-6 py-3 fixed top-0 left-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-10">
         {/* Logo */}
-        <div className="flex items-center space-x-3">
-          <img src={Logo} alt="Neswara Logo" className="h-15" />
+        <div className="flex items-center">
+          <img src={Logo} alt="Neswara Logo" className="h-10" />
         </div>
 
         {/* Navigation Links */}

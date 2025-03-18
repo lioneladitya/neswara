@@ -16,10 +16,10 @@ const NewsPortal = () => {
 
     <div>
       <Navbar/>
-
+      <main className="mt-16">
+        {/* Konten halaman */}
+      </main>
       <Hero/>
-
-      {/* <NewsSection/> */}
 
       <HeroSection />
 
