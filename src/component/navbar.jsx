@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-10">
         {/* Logo */}
         <div className="flex items-center">
-          <img src={Logo} alt="Neswara Logo" className="h-10" />
+          <img src={Logo} alt="Neswara Logo" className="h-15" />
         </div>
 
         {/* Navigation Links */}

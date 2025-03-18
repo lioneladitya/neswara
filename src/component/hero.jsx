@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <div className="w-full px-6">
       {/* Categories */}
-      <div className="flex space-x-4 mt-6 overflow-x-auto justify-center gap-4 bg-gray-200 p-3 rounded-lg shadow">
+      <div className="flex space-x-4 mt-23 overflow-x-auto justify-center gap-4 bg-gray-200 p-3 rounded-lg shadow">
         {categories.map((cat, index) => (
           <button key={index} className="px-6 py-2 bg-white rounded-lg hover:bg-gray-300 font-bold">
             {cat}
