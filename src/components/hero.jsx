@@ -1,4 +1,9 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 import NewsImage from "../assets/barcelona.jpg";
 
 const articles = [
@@ -19,24 +24,32 @@ const articles = [
   },
 ];
 
-const categories = ["SMK", "SMA", "BARCELONA", "PASAR", "MODERN"];
+// const categories = ["SMK", "SMA", "Real Madrid", "Pasar", "Modern", "Peristiwa", "Daerah"];
 
 const Hero = () => {
   return (
     <div className="w-full px-6">
-      {/* Categories dengan Side Scrolling */}
-      <div className="w-full overflow-x-auto scrollbar-hide mt-23 bg-gray-200 p-3 rounded-lg shadow flex justify-center">
-        <div className="flex space-x-4 snap-x snap-mandatory px-4">
-          {categories.map((cat, index) => (
-            <button
-              key={index}
-              className="px-6 py-2 bg-white rounded-lg hover:bg-gray-300 font-bold snap-center whitespace-nowrap"
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* Swiper */}
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={1}
+        spaceBetween={8}
+        navigation
+        breakpoints={{
+          640: { slidesPerView: 2, spaceBetween: 16 },
+          768: { slidesPerView: 3, spaceBetween: 16 },
+          1024: { slidesPerView: 5 },
+        }}
+        className="py-2"
+      >
+        {["SMK", "SMA", "Real Madrid", "Pasar", "Modern", "Peristiwa", "Daerah"].map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="p-2 my-10 py-7 text-center bg-white rounded-lg shadow dark:bg-gray-800 dark:text-white">
+              <span className="text-sm sm:text-lg font-bold uppercase">{item}</span>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       {/* Content */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 px-4">
