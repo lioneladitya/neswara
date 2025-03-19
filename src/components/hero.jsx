@@ -4,8 +4,6 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import NewsImage from "../assets/barcelona.jpg";
-
 const articles = [
   {
     date: "2025-01-06 10:24:24",
@@ -24,7 +22,7 @@ const articles = [
   },
 ];
 
-// const categories = ["SMK", "SMA", "Real Madrid", "Pasar", "Modern", "Peristiwa", "Daerah"];
+const categories = ["SMK", "SMA", "Real Madrid", "Pasar", "Modern", "Peristiwa", "Daerah"];
 
 const Hero = () => {
   return (
@@ -42,57 +40,109 @@ const Hero = () => {
         }}
         className="py-2"
       >
-        {["SMK", "SMA", "Real Madrid", "Pasar", "Modern", "Peristiwa", "Daerah"].map((item, index) => (
+        {categories.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="p-2 my-10 py-7 text-center bg-white rounded-lg shadow dark:bg-gray-800 dark:text-white">
+            <div className="p-2 my-10 text-center bg-white rounded-lg shadow dark:bg-gray-800 dark:text-white">
               <span className="text-sm sm:text-lg font-bold uppercase">{item}</span>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Content */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 px-4">
-        {/* Left Section */}
-        <div className="md:col-span-1">
-          {articles.map((article, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow-lg mb-4">
-              <img
-                src={article.image}
-                alt="news"
-                className="w-full h-40 object-cover rounded-lg"
-              />
-              <p className="text-xs text-gray-500 mt-2">{article.date}</p>
-              <h2 className="text-sm font-semibold mt-1">{article.title}</h2>
-            </div>
-          ))}
-        </div>
-
-        {/* Middle Section */}
-        <div className="md:col-span-1 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full text-center">
-            <img
-              src={NewsImage}
-              alt="Main News"
-              className="w-full h-60 object-cover rounded-lg"
-            />
-            <h2 className="text-lg font-semibold mt-4">Latest News</h2>
-            <p className="text-gray-600">Stay updated with the latest information.</p>
+      {/* Layout Mobile */}
+      <div className="block md:hidden mt-6">
+        <div className="relative">
+          <img
+            src={articles[0].image}
+            alt="Main News"
+            className="w-full h-96 object-cover rounded-lg"
+          />
+          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent p-2">
+            <p className="text-white text-lg font-bold">{articles[0].title}</p>
           </div>
         </div>
-
-        {/* Right Section */}
-        <div className="md:col-span-1">
-          {[...Array(3)].map((_, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 text-white p-6 rounded-lg shadow-lg mb-4 text-center"
-            >
-              <h2 className="text-sm">TIDAK ADA BERITA</h2>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          {articles.slice(1, 3).map((article, index) => (
+            <div key={index} className="relative">
+              <img
+                src={article.image}
+                alt={`News ${index + 1}`}
+                className="w-full h-24 object-cover rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent p-1">
+                <p className="text-white text-xs">{article.title}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Layout Desktop */}
+      <div className="hidden md:grid grid-cols-3 gap-6 mt-6">
+        {/* Kolom Kiri */}
+        <div className="flex flex-col space-y-4">
+          {articles.slice(0, 2).map((article, index) => (
+            <div key={index} className="relative">
+              <img
+                src={article.image}
+                alt={`News ${index + 1}`}
+                className="w-full h-40 md:h-32 object-cover rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent p-1">
+                <p className="text-white text-sm text-left">{article.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Kolom Tengah */}
+        <div className="col-span-1 flex flex-col items-center">
+          <div className="relative w-full">
+            <img
+              src={articles[0].image}
+              alt="Main News"
+              className="w-full h-60 lg:h-96 object-cover rounded-lg"
+            />
+            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent p-2">
+              <p className="text-white text-lg font-bold text-left">{articles[0].title}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Kolom Kanan */}
+        <div className="flex flex-col space-y-4">
+          {articles.slice(1, 3).map((article, index) => (
+            <div key={index} className="relative">
+              <img
+                src={article.image}
+                alt={`News ${index + 1}`}
+                className="w-full h-40 md:h-32 object-cover rounded-lg"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent p-1">
+                <p className="text-white text-sm text-left">{article.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Iklan Persegi Panjang */}
+      <div className="mt-4 mb-4 flex justify-center">
+        <div className="w-full max-w-7xl bg-gray-200 p-4 md:p-8 rounded-lg shadow-lg text-center">
+          <p className="font-bold text-gray-600 text-sm md:text-base">
+            Ingin mengiklankan produk Anda? Hubungi kami untuk menampilkan di sini!
+          </p> 
+        </div>
+      </div>
+      
+      {/* trending section */}
+      <div className="mt-10 mb-4 flex justify-left">
+          <div className="w-full max-w-7xl">
+          <h2 className="font-bold text-xl font-bold text-center md:text-left ">
+              Trending This Week
+            </h2>
+          </div>
+          </div>
     </div>
   );
 };
