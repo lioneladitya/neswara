@@ -1,5 +1,5 @@
 import React from "react";
-import NewsImage from "../assets/barcelona.jpg"; 
+import NewsImage from "../assets/barcelona.jpg";
 
 const articles = [
   {
@@ -24,13 +24,18 @@ const categories = ["SMK", "SMA", "BARCELONA", "PASAR", "MODERN"];
 const Hero = () => {
   return (
     <div className="w-full px-6">
-      {/* Categories */}
-      <div className="flex space-x-4 mt-23 overflow-x-auto justify-center gap-4 bg-gray-200 p-3 rounded-lg shadow">
-        {categories.map((cat, index) => (
-          <button key={index} className="px-6 py-2 bg-white rounded-lg hover:bg-gray-300 font-bold">
-            {cat}
-          </button>
-        ))}
+      {/* Categories dengan Side Scrolling */}
+      <div className="w-full overflow-x-auto scrollbar-hide mt-23 bg-gray-200 p-3 rounded-lg shadow flex justify-center">
+        <div className="flex space-x-4 snap-x snap-mandatory px-4">
+          {categories.map((cat, index) => (
+            <button
+              key={index}
+              className="px-6 py-2 bg-white rounded-lg hover:bg-gray-300 font-bold snap-center whitespace-nowrap"
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Content */}
@@ -39,7 +44,11 @@ const Hero = () => {
         <div className="md:col-span-1">
           {articles.map((article, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow-lg mb-4">
-              <img src={article.image} alt="news" className="w-full h-40 object-cover rounded-lg" />
+              <img
+                src={article.image}
+                alt="news"
+                className="w-full h-40 object-cover rounded-lg"
+              />
               <p className="text-xs text-gray-500 mt-2">{article.date}</p>
               <h2 className="text-sm font-semibold mt-1">{article.title}</h2>
             </div>
@@ -62,7 +71,10 @@ const Hero = () => {
         {/* Right Section */}
         <div className="md:col-span-1">
           {[...Array(3)].map((_, index) => (
-            <div key={index} className="bg-gray-800 text-white p-6 rounded-lg shadow-lg mb-4 text-center">
+            <div
+              key={index}
+              className="bg-gray-800 text-white p-6 rounded-lg shadow-lg mb-4 text-center"
+            >
               <h2 className="text-sm">TIDAK ADA BERITA</h2>
             </div>
           ))}
