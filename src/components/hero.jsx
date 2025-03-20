@@ -22,7 +22,7 @@ const articles = [
   },
 ];
 
-const categories = ["SMK", "SMA", "Real Madrid", "Pasar", "Modern", "Peristiwa", "Daerah"];
+const categories = ["SMK", "SMA", "Barcelona", "Pasar", "Modern", "Peristiwa", "Daerah"];
 
 const Hero = () => {
   return (
@@ -139,7 +139,7 @@ const Hero = () => {
       <div className="mt-10 mb-4 flex justify-left">
           <div className="w-full max-w-7xl">
           <h2 className="font-bold text-xl font-bold text-center md:text-left ">
-              Trending This Week
+              TRENDING THIS WEEK
             </h2>
           </div>
           </div>
