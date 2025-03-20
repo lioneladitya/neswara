@@ -27,35 +27,42 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(true)} className="md:hidden">
+        <button onClick={() => setIsOpen(true)} className="md:hidden focus:outline-none">
           <FaBars className="text-2xl text-gray-700" />
         </button>
       </div>
 
       {/* Fullscreen Mobile Menu */}
-      <div className={`fixed top-0 left-0 w-4/5 h-full bg-white shadow-xl transform ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:hidden`}>
-        <div className="p-5 flex flex-col h-full">
+      <div
+        className={`fixed inset-0 transform ${isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:hidden`}
+      >
+        <div className="w-4/5 h-full bg-white shadow-lg p-6 flex flex-col">
           {/* Close Button */}
           <div className="flex justify-between items-center">
             <img src={NewsImage} alt="Logo" className="w-24" />
-            <button onClick={() => setIsOpen(false)}>
+            <button onClick={() => setIsOpen(false)} className="focus:outline-none">
               <FaTimes className="text-2xl text-gray-700" />
             </button>
           </div>
 
           {/* Menu Items */}
-          <div className="mt-5 space-y-4 font-semibold text-gray-800">
+          <div className="mt-8 space-y-6 text-lg font-semibold text-gray-800">
             {["LIFESTYLE", "EDUCATION", "REGION", "SPORT", "TOUR & TRAVEL", "NATIONAL", "BUSINESS"].map((item, index) => (
-              <a key={index} href="#" className="block text-lg border-b pb-2">
+              <a
+                key={index}
+                href="#"
+                className="block py-3 px-4 rounded-lg bg-gray-100 hover:bg-yellow-400 hover:text-white transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
                 {item}
               </a>
             ))}
           </div>
 
           {/* User & Search Icons */}
-          <div className="mt-auto flex items-center space-x-4 text-gray-700 border-t pt-4">
-            <FaUserCircle className="text-2xl cursor-pointer" />
-            <FaSearch className="text-2xl cursor-pointer" />
+          <div className="mt-auto flex justify-center space-x-6 text-gray-700 border-t pt-6">
+            <FaUserCircle className="text-3xl cursor-pointer" />
+            <FaSearch className="text-3xl cursor-pointer" />
           </div>
         </div>
       </div>
