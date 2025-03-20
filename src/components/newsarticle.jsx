@@ -36,35 +36,22 @@ const latestNews = [
 const popularNews = [
   { title: "Real Madrid Juara Lagi!", date: "10 Jan 2025", comments: 5, link: "#" },
   { title: "Harga Minyak Dunia Naik", date: "9 Jan 2025", comments: 12, link: "#" },
-  { title: "BTS Rilis Lagu Baru", date: "8 Jan 2025", comments: 20, link: "#" },
-  { title: "Startup Indonesia Go International", date: "7 Jan 2025", comments: 8, link: "#" },
 ];
 
 const NewsArticle = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 relative">
-      {/* Kotak Putih Latar Belakang untuk Semua Berita */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-800 shadow-lg rounded-lg -z-10 p-6"></div>
-
-      {/* Saran Berita di Atas Tengah */}
-      {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-6 py-2 rounded-lg shadow-md">
-        <h2 className="text-lg font-semibold">Saran Berita</h2>
-      </div> */}
-
-      <div className="grid grid-cols-3 gap-8">
+    <section className="max-w-7xl mx-auto px-4 py-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Kolom Berita Terbaru */}
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Berita Terbaru</h2>
           <div className="space-y-4">
             {latestNews.map((news, index) => (
-              <article key={index} className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md flex items-start space-x-6">
-                {/* Gambar di kiri */}
-                <div className="w-50 h-50 flex-shrink-0">
-                  <img src={news.image} alt="News Thumbnail" className="w-full h-full object-cover rounded-lg" />
+              <article key={index} className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-md flex flex-col md:flex-row items-start space-y-4 md:space-x-6">
+                <div className="w-full md:w-1/3">
+                  <img src={news.image} alt="News Thumbnail" className="w-full h-40 object-cover rounded-lg" />
                 </div>
-
-                {/* Judul & Deskripsi di kanan */}
-                <div className="flex flex-col justify-between flex-grow">
+                <div className="flex flex-col flex-grow">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                     <a href={news.link} className="hover:text-primary transition duration-200">
                       {news.title}
@@ -78,12 +65,12 @@ const NewsArticle = () => {
           </div>
         </div>
 
-        {/* Kolom Popular Now (di dalam kotak putih) */}
+        {/* Kolom Popular Now */}
         <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-md">
           <div className="grid place-items-center">
-            <img src={NewsImage} alt="Centered" className="object-cover" />
+            <img src={NewsImage} alt="Centered" className="object-cover w-32" />
           </div>
-          <p className="text-gray-400 font-bold text-center m-5 text-2xl">Microdata Indonesia</p>
+          <p className="text-gray-400 font-bold text-center my-4 text-2xl">Microdata Indonesia</p>
           <h2 className="text-xl text-center font-bold text-gray-900 dark:text-white mb-4">Popular Now</h2>
           <div className="space-y-4">
             {popularNews.map((news, index) => (
@@ -100,13 +87,10 @@ const NewsArticle = () => {
               </div>
             ))}
           </div>
-          <div className="mt-8">
-            <p className="text-center font-bold text-gray-400">FOLLOW @NESWARA</p>
-            <div className="flex flex-col space-y-2">
-              <label htmlFor="email" className="font-medium"></label>
-              <input id="email" type="email" placeholder="your email" className="w-full p-2 border rounded-lg" />
-              <button className="mt-2 p-2 bg-black text-white rounded-lg hover:bg-gray-600">SUBSCRIBE NOW</button>
-            </div>
+          <div className="mt-8 text-center">
+            <p className="font-bold text-gray-400">FOLLOW @NESWARA</p>
+            <input type="email" placeholder="your email" className="w-full p-2 border rounded-lg mt-2" />
+            <button className="mt-2 w-full p-2 bg-black text-white rounded-lg hover:bg-gray-600">SUBSCRIBE NOW</button>
             <div className="flex space-x-4 mt-4 justify-center">
               <FaFacebook className="text-gray-400 hover:text-black" size={30} />
               <FaTwitter className="text-gray-400 hover:text-black" size={30} />
