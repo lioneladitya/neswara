@@ -36,7 +36,7 @@ const latestNews = [
 const popularNews = [
   { title: "Barcelona Juara Lagi!", date: "10 Jan 2025", comments: 5, link: "#" },
   { title: "Harga Minyak Dunia Naik", date: "9 Jan 2025", comments: 12, link: "#" },
-  { title: "Lionel Aditya Sangat Keren", date: "9 Jan 2025", comments: 12, link: "#" },
+  { title: "Lionel Aditya Sangat Keren", date: "8 Jan 2025", comments: 103, link: "#" },
 ];
 
 const NewsArticle = () => {
