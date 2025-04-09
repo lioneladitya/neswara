@@ -26,7 +26,7 @@ const categories = ["SMK", "SMA", "Barcelona", "Pasar", "Modern", "Peristiwa", "
 
 const Hero = () => {
   return (
-    <div className="w-full px-6 py-6 bg-gray-50 dark:bg-gray-900">
+    <div className="w-full px-6 py-6 bg-gray-50 ">
       {/* Swiper Kategori */}
       <Swiper
         modules={[Navigation]}

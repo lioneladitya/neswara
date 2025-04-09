@@ -1,5 +1,5 @@
 import React from "react";
-import NewsImage from "../assets/microdata.jpg";
+import NewsImage from "../assets/microdata.png";
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const latestNews = [
